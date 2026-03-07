@@ -1938,8 +1938,8 @@ module csr_regfile
       endcase
     end
     if (CVA6Cfg.IS_XLEN64) begin
-      mstatus_d.sxl = riscv::XLEN_64;
-      mstatus_d.uxl = riscv::XLEN_64;
+      mstatus_d.sxl = CVA6Cfg.RVS ? riscv::XLEN_64 : '0;
+      mstatus_d.uxl = CVA6Cfg.RVU ? riscv::XLEN_64 : '0;
     end
     if (!CVA6Cfg.RVU) begin
       mstatus_d.mpp = riscv::PRIV_LVL_M;
